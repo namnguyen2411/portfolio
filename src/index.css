@@ -1,3 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 32 203 199;
+    --color-secondary: 249 115 22;
+    --color-background: 240 240 243;
+    --color-text: 0 0 0;
+    --color-nav-background: 226 232 240;
+    --color-nav-text: 190 190 190;
+  }
+  :root[class~='dark'] {
+    --color-primary: 32 203 199;
+    --color-secondary: 54 158 233;
+    --color-background: 41 45 50;
+    --color-text: 225 255 255;
+    --color-nav-background: 82 82 82;
+    --color-nav-text: 110 110 110;
+  }
+  html {
+    @apply scroll-smooth bg-bgTheme transition-all ease-linear;
+  }
+  body {
+    @apply font-openSans tracking-[0.015em] text-textTheme;
+  }
+  h1 {
+    @apply pb-5 font-playfair text-5xl font-bold text-primary sm:text-6xl lg:text-7xl;
+  }
+  h2 {
+    @apply font-playfair text-4xl font-bold text-primary lg:text-5xl;
+  }
+  h3 {
+    @apply font-playfair text-2xl font-semibold text-textTheme sm:text-3xl lg:text-4xl;
+  }
+  p,
+  button,
+  a {
+    @apply text-xs font-medium sm:text-base lg:text-lg;
+  }
+}
+
+@layer components {
+}
