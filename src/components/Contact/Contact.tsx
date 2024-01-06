@@ -1,3 +1,7 @@
 export default function Contact() {
-  return <div>Contact</div>
+  return (
+    <section id="contact" className="min-h-screen">
+      Contact
+    </section>
+  )
 }
