@@ -27,7 +27,7 @@ export default function ActiveNav({ nav, activeNav, setActiveNav }: NavItemProps
       >
         {'<'}
       </span>
-      <span>{title}</span>
+      <span className="text-xs sm:text-base lg:text-lg">{title}</span>
       <span
         className={clsx('text-sm duration-300 sm:text-lg lg:text-2xl', {
           'text-transparent': activeNav !== id,
