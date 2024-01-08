@@ -6,15 +6,27 @@ import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 
+const MARGIN_TOP = 'mt-36'
+
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      <section id="home">
+        <Home />
+      </section>
+      <section id="skills" className={`${MARGIN_TOP}`}>
+        <Skills />
+      </section>
+      <section id="projects" className={`${MARGIN_TOP}`}>
+        <Projects />
+      </section>
+      <section id="about" className={`${MARGIN_TOP}`}>
+        <About />
+      </section>
+      <section id="contact" className={`${MARGIN_TOP}`}>
+        <Contact />
+      </section>
       <Footer />
     </div>
   )

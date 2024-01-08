@@ -26,7 +26,7 @@
     @apply scroll-smooth bg-bgTheme transition-all ease-linear;
   }
   body {
-    @apply font-openSans tracking-[0.015em] text-textTheme;
+    @apply overflow-x-hidden font-openSans tracking-[0.015em] text-textTheme;
   }
   h1 {
     @apply pb-5 font-playfair text-5xl font-bold text-primary sm:text-6xl lg:text-7xl;
@@ -40,9 +40,16 @@
   p,
   button,
   a {
-    @apply text-xs font-medium sm:text-base lg:text-lg;
+    @apply text-sm font-medium sm:text-base lg:text-lg;
   }
 }
 
 @layer components {
+  .glowing {
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor,
+      0 0 80px currentColor;
+  }
 }
