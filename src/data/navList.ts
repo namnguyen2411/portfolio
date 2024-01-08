@@ -4,12 +4,16 @@ const navList = [
     id: '#home'
   },
   {
-    title: 'About',
-    id: '#about'
+    title: 'Skills',
+    id: '#skills'
   },
   {
     title: 'Projects',
     id: '#projects'
+  },
+  {
+    title: 'About',
+    id: '#about'
   },
   {
     title: 'Contact',
