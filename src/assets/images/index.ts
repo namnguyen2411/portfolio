@@ -1,4 +1,3 @@
-import header from './header.png'
 import about from './about.jpg'
 import shopeeClone from './shopeeClone.jpg'
 import project2 from './project2.jpg'
@@ -11,14 +10,14 @@ import tailwindcss from './tailwindcss.png'
 import redux from './redux.png'
 import reactquery from './reactquery.svg'
 import emailGif from './email.gif'
-import phoneGif from './phone.gif'
 import typescript from './typescript.png'
 import nodejs from './nodejs.png'
 import expressjs from './expressjs.png'
 import mongodb from './mongodb.png'
+import emailSentAnimation from './emailSentAnimation.json'
+import facebook from './facebook-f.svg'
 
 export {
-  header,
   about,
   shopeeClone,
   project2,
@@ -31,9 +30,10 @@ export {
   redux,
   reactquery,
   emailGif,
-  phoneGif,
   typescript,
   nodejs,
   expressjs,
-  mongodb
+  mongodb,
+  emailSentAnimation,
+  facebook
 }
