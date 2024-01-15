@@ -6,7 +6,6 @@ const projectList = [
     imgUrl: shopeeClone,
     title: 'Shopee Clone',
     libraries: [
-      'Vite',
       'React',
       'Typescript',
       'Axios',
@@ -20,23 +19,22 @@ const projectList = [
     ],
     liveDemo: 'https://www.google.com.vn/',
     github: 'https://github.com/',
-    summary: 'Introduce your project'
+    description: 'Introduce your project'
   },
   {
     id: 2,
     imgUrl: project2,
     title: 'Online Bookstore',
-    libraries: ['Vite', 'React', 'Typescript', 'Axios', 'Redux Toolkit', 'React Router', 'Ant Design', 'clsx'],
+    libraries: ['React', 'Typescript', 'Axios', 'Redux Toolkit', 'React Router', 'Ant Design', 'clsx'],
     liveDemo: 'https://www.google.com.vn/',
     github: 'https://github.com/',
-    summary: 'Introduce your project'
+    description: 'Introduce your project'
   },
   {
     id: 3,
     imgUrl: hangman,
     title: 'Learning English with Hangman',
     libraries: [
-      'Vite',
       'React',
       'Typescript',
       'Axios',
@@ -49,7 +47,7 @@ const projectList = [
     ],
     liveDemo: 'https://www.google.com.vn/',
     github: 'https://github.com/',
-    summary: 'Introduce your project'
+    description: 'Introduce your project'
   }
 ]
 
