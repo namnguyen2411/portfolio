@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { getThemeFromLocalStore } from 'src/utils'
 import { useTheme } from 'src/hooks/useTheme'
 import navList from 'src/data/navList'
@@ -7,10 +5,14 @@ import { NavIdType } from 'src/types/nav.type'
 import ClickableComponent from 'src/components/ClickableComponent'
 import NavItem from './NavItem'
 
-export default function Navbar() {
+type NavbarProps = {
+  activeNav: NavIdType
+  setActiveNav: React.Dispatch<React.SetStateAction<NavIdType>>
+}
+
+export default function Navbar({ activeNav, setActiveNav }: NavbarProps) {
   const currentTheme = getThemeFromLocalStore()
   const { theme, toggleTheme } = useTheme(currentTheme)
-  const [activeNav, setActiveNav] = useState<NavIdType>(navList[0].id)
 
   return (
     <nav className="fixed bottom-10 left-1/2 z-20 h-[50px] w-[95%] max-w-2xl -translate-x-1/2 rounded-xl bg-navBgTheme shadow-md shadow-neutral-500">
