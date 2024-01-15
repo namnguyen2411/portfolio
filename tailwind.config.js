@@ -39,6 +39,12 @@ export default {
           '60%': { transform: 'rotate(0.0deg)' },
           '100%': { transform: 'rotate(0.0deg)' }
         }
+      },
+      boxShadow: {
+        neumorphism: '-6px -6px 10px #fff, 6px 6px 10px rgba(174, 174, 192, .4)',
+        'neumorphism-dark': '6px 6px 10px rgb(36, 38, 44), -6px -6px 10px rgb(48, 52, 58)',
+        'input-neumorphism': 'inset 6px 6px 10px rgba(174, 174, 192, .4), inset -6px -6px 10px #fff',
+        'input-neumorphism-dark': 'inset 6px 6px 10px rgba(36, 38, 44, .4), inset -6px -6px 10px rgb(48, 52, 58)'
       }
     }
   },

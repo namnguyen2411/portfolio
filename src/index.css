@@ -23,10 +23,10 @@
     --color-nav-text: 110 110 110;
   }
   html {
-    @apply scroll-smooth bg-bgTheme transition-all ease-linear;
+    @apply overflow-x-hidden scroll-smooth bg-bgTheme transition-all ease-linear;
   }
   body {
-    @apply overflow-x-hidden font-openSans tracking-[0.015em] text-textTheme;
+    @apply relative overflow-x-hidden font-openSans tracking-[0.015em] text-textTheme;
   }
   h1 {
     @apply pb-5 font-playfair text-5xl font-bold text-primary sm:text-6xl lg:text-7xl;
@@ -40,7 +40,7 @@
   p,
   button,
   a {
-    @apply text-sm font-medium sm:text-base lg:text-lg;
+    @apply rounded-lg text-sm font-medium sm:text-base lg:text-lg;
   }
 }
 
@@ -51,5 +51,11 @@
       0 0 20px currentColor,
       0 0 40px currentColor,
       0 0 80px currentColor;
+  }
+  .neumorphism {
+    @apply shadow-neumorphism dark:shadow-neumorphism-dark;
+  }
+  .input-neumorphism {
+    @apply shadow-input-neumorphism dark:shadow-input-neumorphism-dark;
   }
 }
