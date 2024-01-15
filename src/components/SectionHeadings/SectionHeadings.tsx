@@ -24,7 +24,7 @@ export default function SectionHeadings({
     <LazyMotion features={domAnimation}>
       <m.div
         ref={headingRef}
-        viewport={{ amount: 0.5, once: true }}
+        viewport={{ amount: 1, once: true }}
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

@@ -8,11 +8,11 @@ type ClickableComponentProps = ButtonHTMLAttributes<HTMLButtonElement> | Link
 
 export default function ClickableComponent(props: ClickableComponentProps) {
   return 'href' in props ? (
-    <a href={props.href} className={props.className} onClick={props.onClick}>
+    <a {...props} className={props.className} onClick={props.onClick}>
       {props.children}
     </a>
   ) : (
-    <button type={props.type} className={props.className} onClick={props.onClick}>
+    <button type={props.type} className={props.className} onClick={props.onClick} {...props}>
       {props.children}
     </button>
   )
