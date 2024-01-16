@@ -1,5 +1,5 @@
 import { FormEvent, FormHTMLAttributes, forwardRef } from 'react'
-import ClickableComponent from '../ClickableComponent'
+import ClickableComponent from '../../components/ClickableComponent'
 import { FormDataType } from 'src/types/form.type'
 
 type ContactFormProps = {

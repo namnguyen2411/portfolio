@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { m, LazyMotion, domAnimation, useInView } from 'framer-motion'
+import { m, LazyMotion, domMax, useInView } from 'framer-motion'
 
-import About from './components/About'
-import Contact from './components/Contact'
+import Home from './sections/Home'
+import About from './sections/About'
+import Projects from './sections/Projects'
+import Contact from './sections/Contact'
 import Footer from './components/Footer'
-import Home from './components/Home'
 import Navbar from './components/Navbar'
-import Projects from './components/Projects'
 import { NavIdType } from './types/nav.type'
 import navList from './data/navList'
 
@@ -40,9 +40,9 @@ function App() {
   }, [homeInView, aboutInView, projectsInView, contactInView])
 
   return (
-    <div className="App">
-      <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
-      <LazyMotion features={domAnimation}>
+    <LazyMotion features={domMax}>
+      <div className="App">
+        <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
         <m.section id="home" ref={homeRef}>
           <Home />
         </m.section>
@@ -55,9 +55,9 @@ function App() {
         <m.section id="contact" ref={contactRef} className={`${MARGIN_TOP}`}>
           <Contact />
         </m.section>
-      </LazyMotion>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LazyMotion>
   )
 }
 

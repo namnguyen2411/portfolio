@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { ProjectType } from 'src/types/project.type'
-import ClickableComponent from '../ClickableComponent'
+import ClickableComponent from 'src/components/ClickableComponent'
 
 type ProjectProps = {
   project: ProjectType

@@ -1,4 +1,4 @@
-import ClickableComponent from '../ClickableComponent'
+import ClickableComponent from 'src/components/ClickableComponent'
 
 export default function Home() {
   return (
@@ -22,34 +22,17 @@ export default function Home() {
           </span>
           My name is
         </p>
-        <h1>Phuong Nam</h1>
-        <h3 className="font-bold text-secondary">Shy Guy Love Coding</h3>
+        <h1 className="text-secondary">Phuong Nam</h1>
+        <h3 className="font-bold text-primary">Shy Guy Love Coding</h3>
         <p className="mx-auto mt-5 max-w-[90%] lg:max-w-[62%]">
-          I&#39;m a 27-year-old friendly, but kinda shy guy. I&#39;m a beginner front-end developer on the hunt for a
-          job. I&#39;m always ready to take on new challenges and expand my skill set to deliver high-quality work.
-          I&#39;m eager to show off my work and make a great impression.
+          I&#39;m a 27-year-old friendly, but kinda shy guy. I&#39;m a beginner front-end developer. I&#39;m always
+          ready to take on new challenges and expand my skill set to deliver high-quality work. I&#39;m eager to show
+          off my work and make a great impression.
         </p>
         <div className="mt-6 flex items-center justify-center gap-5 md:gap-10">
-          <ClickableComponent className="hover:glowing group flex items-center justify-center gap-2 rounded-md bg-black px-3 py-3 text-white shadow-md shadow-neutral-500 duration-300 lg:px-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="aspect-square w-5 text-white group-hover:animate-bounce lg:w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-              />
-            </svg>
-            Download CV
-          </ClickableComponent>
           <ClickableComponent
             href="#contact"
-            className="hover:glowing group flex w-fit items-center gap-2 rounded-md bg-primary px-3 py-3 text-white shadow-md shadow-neutral-500 duration-300 lg:px-4"
+            className="hover:glowing group flex w-fit items-center gap-2 border-2 border-secondary bg-secondary px-3 py-3 text-white shadow-md shadow-neutral-500 duration-300 lg:px-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +49,23 @@ export default function Home() {
               />
             </svg>
             Contact Me
+          </ClickableComponent>
+          <ClickableComponent className="group flex items-center justify-center gap-2 border-2 border-primary px-3 py-3 text-primary shadow-md shadow-neutral-500 duration-300 lg:px-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="aspect-square w-5 text-primary group-hover:animate-bounce lg:w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+              />
+            </svg>
+            Download CV
           </ClickableComponent>
         </div>
       </div>

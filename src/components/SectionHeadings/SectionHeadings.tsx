@@ -1,7 +1,7 @@
-import { m, LazyMotion, domAnimation } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useRef } from 'react'
 
-interface Props {
+interface SectionHeadingsProps {
   heading1?: string
   heading1Classname?: string
   heading2?: string
@@ -17,23 +17,21 @@ export default function SectionHeadings({
   heading2Classname = 'mt-5',
   heading3,
   heading3Classname
-}: Props) {
+}: SectionHeadingsProps) {
   const headingRef = useRef<HTMLDivElement>(null)
 
   return (
-    <LazyMotion features={domAnimation}>
-      <m.div
-        ref={headingRef}
-        viewport={{ amount: 1, once: true }}
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="pt-2 text-center"
-      >
-        {heading1 && <h1 className={heading1Classname}>{heading1}</h1>}
-        <h3 className={heading3Classname}>{heading3}</h3>
-        <h2 className={heading2Classname}>{heading2}</h2>
-      </m.div>
-    </LazyMotion>
+    <m.div
+      ref={headingRef}
+      viewport={{ amount: 1, once: true }}
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className="pt-2 text-center"
+    >
+      {heading1 && <h1 className={heading1Classname}>{heading1}</h1>}
+      <h3 className={heading3Classname}>{heading3}</h3>
+      <h2 className={heading2Classname}>{heading2}</h2>
+    </m.div>
   )
 }
