@@ -5,6 +5,7 @@ import SectionHeadings from 'src/components/SectionHeadings'
 import { about } from 'src/assets/images'
 import skillList from 'src/data/skillList'
 import Skill from 'src/components/Skill/Skill'
+import { SkillType } from 'src/types/skill.type'
 
 const INITIAL_POSITION = '14%'
 
@@ -20,6 +21,7 @@ export default function About() {
   const pictureRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
   const [skillRefList, setSkillRefList] = useState<RefObject<HTMLDivElement>[]>([])
+  const [displaySkill, setDisplaySkill] = useState<SkillType['name'] | undefined>(undefined)
 
   useEffect(() => {
     for (let i = 0; i < skillList.length; i++) {
@@ -44,9 +46,9 @@ export default function About() {
           whileInView={'whileInView'}
           viewport={{ amount: 0.5, once: true }}
           variants={variants}
-          className="mx-auto aspect-square max-w-[400px] lg:mx-0"
+          className="mx-auto aspect-square max-w-[300px] lg:mx-0"
         >
-          <img src={about} className="h-auto max-w-full rounded-full object-cover" />
+          <img src={about} className="w-full rounded-full object-cover" />
         </m.div>
         {/* text */}
         <m.div
@@ -72,7 +74,7 @@ export default function About() {
       <div className="mt-24 px-4 text-center">
         <SectionHeadings heading3={'Let me show you'} heading2={'My Skills'} />
 
-        <m.div className="mx-auto mt-20 flex max-w-full flex-wrap items-center justify-center gap-12 md:max-w-[80%] lg:gap-16">
+        <m.div className="mx-auto mt-10 flex max-w-full flex-wrap items-center justify-center gap-12 md:max-w-[80%] lg:mt-20 lg:gap-16">
           {skillList.map((skill, index) => (
             <m.div
               key={skill.name}
@@ -81,7 +83,13 @@ export default function About() {
               transition={{ delay: 0.3 * index + 1, duration: 0.3 }}
               viewport={{ amount: 0.5, once: true }}
             >
-              <Skill skill={skill} index={index} skillRefList={skillRefList} />
+              <Skill
+                skill={skill}
+                index={index}
+                skillRefList={skillRefList}
+                displaySkill={displaySkill}
+                setDisplaySkill={setDisplaySkill}
+              />
             </m.div>
           ))}
         </m.div>
