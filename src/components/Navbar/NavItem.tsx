@@ -15,8 +15,8 @@ export default function ActiveNav({ nav, activeNav, setActiveNav }: NavItemProps
       href={id}
       onClick={() => setActiveNav(id)}
       className={clsx('setActiveNav flex items-center gap-0.5 font-bold duration-300', {
-        'text-textTheme': activeNav === nav.id,
-        'text-navTextTheme hover:scale-x-105 hover:text-textTheme': activeNav !== nav.id
+        'text-textTheme': activeNav === id,
+        'text-navTextTheme hover:scale-x-105 hover:text-textTheme': activeNav !== id
       })}
     >
       <span
