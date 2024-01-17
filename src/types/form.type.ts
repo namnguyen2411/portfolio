@@ -1,5 +1,5 @@
 export type FormDataType = {
-  name: string
-  email: string
+  user_name: string
+  user_email: string
   message?: string
 }

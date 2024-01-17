@@ -15,7 +15,8 @@ import nodejs from './nodejs.png'
 import expressjs from './expressjs.png'
 import mongodb from './mongodb.png'
 import emailSentAnimation from './emailSentAnimation.json'
-import facebook from './facebook-f.svg'
+import github from './github.json'
+import linkedin from './linkedin.json'
 
 export {
   about,
@@ -35,5 +36,6 @@ export {
   expressjs,
   mongodb,
   emailSentAnimation,
-  facebook
+  github,
+  linkedin
 }
