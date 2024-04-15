@@ -74,7 +74,7 @@ export default function About() {
       <div className="mt-24 px-4 text-center">
         <SectionHeadings heading3={'Let me show you'} heading2={'My Skills'} />
 
-        <m.div className="mx-auto mt-10 flex max-w-full flex-wrap items-center justify-center gap-12 md:max-w-[80%] lg:mt-20 lg:gap-16">
+        <m.div className="mx-auto mt-10 flex max-w-full flex-wrap items-center justify-center gap-14 md:max-w-[80%] md:gap-[72px] lg:mt-20">
           {skillList.map((skill, index) => (
             <m.div
               key={skill.name}
