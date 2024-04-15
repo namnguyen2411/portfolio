@@ -1,16 +1,4 @@
-import {
-  html,
-  css,
-  javascript,
-  react,
-  typescript,
-  tailwindcss,
-  redux,
-  nodejs,
-  expressjs,
-  mongodb,
-  reactquery
-} from 'src/assets/images'
+import { html, css, javascript, react, typescript, tailwindcss, nodejs, expressjs, mongodb } from 'src/assets/images'
 
 const skillList = [
   {
@@ -32,14 +20,6 @@ const skillList = [
   {
     name: 'TailwindCSS',
     image: tailwindcss
-  },
-  {
-    name: 'Redux',
-    image: redux
-  },
-  {
-    name: 'React Query',
-    image: reactquery
   },
   {
     name: 'TypeScript',
