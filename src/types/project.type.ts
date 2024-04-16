@@ -3,7 +3,8 @@ export type ProjectType = {
   title: string
   description: string
   libraries: string[]
-  imgUrl: string
+  thumbnail: string
+  images: string[]
   liveDemo: string
   github: string
 }
