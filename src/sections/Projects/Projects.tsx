@@ -1,21 +1,15 @@
-import { RefObject, createRef, useEffect, useState } from 'react'
 import { m } from 'framer-motion'
 import clsx from 'clsx'
 
 import SectionHeadings from 'src/components/SectionHeadings'
 import projectList from 'src/data/projectList'
-import Project from './Project'
+import Project from './components/Project'
+import miniProjectList from 'src/data/miniProjectList'
+import MiniProject from './components/MiniProject'
 
 const INITIAL_POSITION = '14%'
 
 export default function Projects() {
-  const [projectRefList, setProjectRefList] = useState<RefObject<HTMLDivElement>[]>([])
-
-  useEffect(() => {
-    const ref = createRef()
-    setProjectRefList(Array(projectList.length).fill(ref) as RefObject<HTMLDivElement>[])
-  }, [])
-
   return (
     <div className="container">
       <SectionHeadings heading3={'My latest'} heading2={'Projects'} />
@@ -23,7 +17,6 @@ export default function Projects() {
         {projectList.map((project, index) => (
           <m.article
             key={project.id}
-            ref={projectRefList[index]}
             initial={{ opacity: 0, x: index % 2 === 0 ? INITIAL_POSITION : `-${INITIAL_POSITION}` }}
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
             viewport={{ amount: 0.3, once: true }}
@@ -33,6 +26,20 @@ export default function Projects() {
             )}
           >
             <Project project={project} />
+          </m.article>
+        ))}
+      </div>
+
+      <h3 className="text-center text-primary">Mini Projects</h3>
+      <div className="mt-5 grid grid-cols-1 gap-10 xl:grid-cols-3">
+        {miniProjectList.map((miniProject) => (
+          <m.article
+            key={miniProject.id}
+            initial={{ opacity: 0, y: '50px' }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: miniProject.id !== 1 ? 0.5 : 0 } }}
+            viewport={{ amount: 0.3, once: true }}
+          >
+            <MiniProject miniProject={miniProject} />
           </m.article>
         ))}
       </div>

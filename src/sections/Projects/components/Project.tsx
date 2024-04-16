@@ -77,12 +77,12 @@ export default function Project({ project }: ProjectProps) {
         )}
 
       <div className={clsx(id === 2 ? 'lg:order-2 lg:ml-auto' : 'lg:order-1')}>
-        {/* project image */}
-        <div className="w-[90%] min-w-[445px] max-w-2xl cursor-pointer" onClick={() => setPreviewMode(true)}>
+        {/* image */}
+        <div className="mx-auto min-w-[360px] max-w-2xl cursor-pointer" onClick={() => setPreviewMode(true)}>
           <img src={thumbnail} alt={title} className="w-full rounded-lg object-cover shadow-md" />
         </div>
-        {/* project links */}
-        <div className="flex items-center justify-center gap-7 pt-4 md:gap-14">
+        {/* links */}
+        <div className="mx-auto flex items-center justify-center gap-7 pt-4 md:gap-14">
           <ClickableComponent
             href={liveDemo}
             target="_blank"
@@ -121,7 +121,7 @@ export default function Project({ project }: ProjectProps) {
           </ClickableComponent>
         </div>
       </div>
-      {/* project details */}
+      {/* details */}
       <div className={`${id === 2 ? 'mr-auto w-full lg:order-1' : 'lg:order-2 lg:mr-[14px]'}`}>
         <span className="mx-auto block text-center text-xl md:px-0 md:text-3xl">{title}</span>
         <div className="mb-2 mt-4">
@@ -135,7 +135,7 @@ export default function Project({ project }: ProjectProps) {
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(description)
           }}
-          className="flex flex-col gap-0.5"
+          className="flex flex-col gap-0.5 text-sm lg:text-base"
         />
       </div>
     </>
