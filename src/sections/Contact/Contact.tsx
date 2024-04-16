@@ -3,10 +3,11 @@ import { m } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import Lottie, { type LottieRefCurrentProps } from 'lottie-react'
 import { Controller, useForm } from 'react-hook-form'
+import clsx from 'clsx'
 
 import SectionHeadings from 'src/components/SectionHeadings'
 import ClickableComponent from 'src/components/ClickableComponent'
-import { emailGif, emailSentAnimation, github, linkedin } from 'src/assets/images'
+import { emailSentAnimation, github, linkedin, email } from 'src/assets/images'
 import { FormDataType } from 'src/types/form.type'
 
 const INITIAL_POSITION = '14%'
@@ -28,6 +29,7 @@ const variants = {
 
 export default function Contact() {
   const [isEmailSent, setIsEmailSent] = useState(false)
+  const [hoveredField, setHoveredField] = useState<'email' | 'name' | undefined>(undefined)
 
   const {
     register,
@@ -37,7 +39,8 @@ export default function Contact() {
     reset
   } = useForm<FormDataType>()
 
-  const emailAnimationRef = useRef<LottieRefCurrentProps>(null)
+  const emailRef = useRef<LottieRefCurrentProps>(null)
+  const emailSentAnimationRef = useRef<LottieRefCurrentProps>(null)
   const formContainerRef = useRef<HTMLDivElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
   const contactDetailsRef = useRef<HTMLDivElement>(null)
@@ -65,7 +68,7 @@ export default function Contact() {
     <>
       <div className="container px-2 pt-2">
         <SectionHeadings heading3={'Take A Coffee &'} heading2={'Chat With Me'} />
-        <div className="mt-10 grid grid-cols-1 gap-y-10 lg:mt-20 lg:grid-cols-12 lg:gap-36">
+        <div className="mt-10 grid grid-cols-1 justify-between gap-y-10 min-[1220px]:mt-16 min-[1220px]:grid-cols-12 min-[1220px]:gap-32 min-[1220px]:pl-10">
           {/* Contact form */}
           <m.div
             ref={formContainerRef}
@@ -73,7 +76,7 @@ export default function Contact() {
             whileInView={'whileInView'}
             viewport={{ once: true, amount: 0.3 }}
             variants={variants.form}
-            className="order-2 col-span-6 mx-0 min-w-[85%] max-w-3xl md:max-lg:mx-auto lg:order-1"
+            className="order-2 col-span-6 mx-auto w-[95%] max-w-3xl md:max-[1220px]:mx-auto"
           >
             <form
               ref={formRef}
@@ -87,7 +90,13 @@ export default function Contact() {
               <div className="flex">
                 <label
                   htmlFor="email"
-                  className="flex h-12 w-[52px] items-center justify-center overflow-hidden rounded-bl-md rounded-tl-md border-2 border-r-0 border-gray-300 bg-gray-200 dark:border-gray-600 dark:bg-[#4b5563]"
+                  className={clsx(
+                    'flex h-12 w-[52px] items-center justify-center overflow-hidden rounded-bl-md rounded-tl-md border-2 border-r-0 bg-gray-200 transition-colors dark:bg-[#4b5563]',
+                    {
+                      'border-primary': hoveredField === 'email',
+                      'border-gray-300 dark:border-gray-600': hoveredField !== 'email'
+                    }
+                  )}
                 >
                   <svg
                     className="h-4 w-4 text-gray-500 dark:text-gray-400"
@@ -109,8 +118,10 @@ export default function Contact() {
                       message: 'Invalid email address'
                     }
                   })}
+                  onFocus={() => setHoveredField('email')}
+                  onBlur={() => setHoveredField(undefined)}
                   id="email"
-                  className="input-neumorphism w-full rounded-br-lg rounded-tr-lg border-2 border-gray-300 bg-bgTheme p-2.5 text-sm text-textTheme transition-colors focus:border-primary focus:outline-none dark:border-gray-600 dark:focus:border-primary dark:focus:outline-none md:text-base"
+                  className="input-neumorphism w-full rounded-br-lg rounded-tr-lg border-2 border-l-0 border-gray-300 bg-bgTheme p-2.5 text-sm text-textTheme transition-colors focus:border-primary focus:outline-none dark:border-gray-600 dark:focus:border-primary dark:focus:outline-none md:text-base"
                   placeholder="Your Email"
                 />
               </div>
@@ -121,7 +132,13 @@ export default function Contact() {
               <div className="flex">
                 <label
                   htmlFor="name"
-                  className="inline-flex aspect-square w-12 items-center justify-center rounded-s-md border-2 border-r-0 border-gray-300 bg-gray-200 px-3 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-600 dark:text-gray-400"
+                  className={clsx(
+                    'flex h-12 w-[52px] items-center justify-center overflow-hidden rounded-bl-md rounded-tl-md border-2 border-r-0 bg-gray-200 transition-colors dark:bg-[#4b5563]',
+                    {
+                      'border-primary': hoveredField === 'name',
+                      'border-gray-300 dark:border-gray-600': hoveredField !== 'name'
+                    }
+                  )}
                 >
                   <svg
                     className="h-4 w-4 text-gray-500 dark:text-gray-400"
@@ -144,7 +161,9 @@ export default function Contact() {
                       message: 'Name cannot contain special characters'
                     }
                   })}
-                  className="input-neumorphism w-full rounded-br-lg rounded-tr-lg border-2 border-gray-300 bg-bgTheme p-2.5 text-sm text-textTheme transition-colors focus:border-primary focus:outline-none dark:border-gray-600 dark:focus:border-primary dark:focus:outline-none md:text-base"
+                  onFocus={() => setHoveredField('name')}
+                  onBlur={() => setHoveredField(undefined)}
+                  className=" input-neumorphism w-full rounded-br-lg rounded-tr-lg border-2 border-l-0 border-gray-300 bg-bgTheme p-2.5 text-sm text-textTheme transition-colors focus:border-primary focus:outline-none dark:border-gray-600 dark:focus:border-primary dark:focus:outline-none md:text-base"
                   placeholder="Your Name"
                 />
               </div>
@@ -181,8 +200,10 @@ export default function Contact() {
           </m.div>
 
           {/* Contact details */}
-          <div className="lg-order-2 order-1 col-span-4 flex flex-col gap-5 lg:gap-8 lg:text-left">
-            <span className="mt-6 text-center text-2xl font-medium md:text-3xl lg:text-left">Contact Details</span>
+          <div className="order-1 col-span-4 flex flex-col gap-5 min-[1220px]:gap-8 min-[1220px]:text-left">
+            <span className="mt-6 text-center text-2xl font-medium md:text-3xl min-[1220px]:text-left">
+              Contact Details
+            </span>
             {/* Email */}
             <m.div
               ref={contactDetailsRef}
@@ -193,10 +214,10 @@ export default function Contact() {
             >
               <ClickableComponent
                 href="mailto:phuongnam.nguyen241196@gmail.com"
-                className="mx-auto flex w-fit items-center gap-4 bg-navBgTheme px-4 py-2 shadow-md shadow-neutral-400 duration-200 hover:text-primary lg:mx-0"
+                className="mx-auto flex w-fit items-center gap-4 bg-navBgTheme px-4 py-2 shadow-md shadow-neutral-400 duration-200 hover:text-primary min-[1220px]:mx-0"
               >
                 <div className="w-10">
-                  <img src={emailGif} className="w-full object-cover" />
+                  <Lottie lottieRef={emailRef} animationData={email} />
                 </div>
                 <div>
                   phuongnam.nguyen241196<span className="block text-center md:hidden">@gmail.com</span>
@@ -215,7 +236,7 @@ export default function Contact() {
                 href="https://github.com/namnguyen2411"
                 target="_blank"
                 rel="noreferrer"
-                className="mx-auto flex w-fit items-center gap-4 bg-navBgTheme px-4 py-2 shadow-md shadow-neutral-400 duration-200 hover:text-primary lg:mx-0"
+                className="mx-auto flex w-fit items-center gap-4 bg-navBgTheme px-4 py-2 shadow-md shadow-neutral-400 duration-200 hover:text-primary min-[1220px]:mx-0"
               >
                 <Lottie animationData={github} className="w-10" />
                 namnguyen2411
@@ -233,7 +254,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/namnguyen2411/"
                 target="_blank"
                 rel="noreferrer"
-                className="mx-auto flex w-fit items-center gap-4 bg-navBgTheme px-4 py-2 shadow-md shadow-neutral-400 duration-200 hover:text-primary lg:mx-0"
+                className="mx-auto flex w-fit items-center gap-4 bg-navBgTheme px-4 py-2 shadow-md shadow-neutral-400 duration-200 hover:text-primary min-[1220px]:mx-0"
               >
                 <Lottie animationData={linkedin} className="w-10" />
                 namnguyen2411
@@ -254,12 +275,12 @@ export default function Contact() {
           <div className="absolute left-1/2 top-[40%] flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center md:w-[412px]">
             <Lottie
               className="aspect-square w-[212px] md:w-[312px]"
-              lottieRef={emailAnimationRef}
+              lottieRef={emailSentAnimationRef}
               animationData={emailSentAnimation}
               loop={false}
               initialSegment={[0, 67]}
               onPlay={() => {
-                emailAnimationRef.current?.setSpeed(0.1)
+                emailSentAnimationRef.current?.setSpeed(0.1)
               }}
             />
             <m.div
