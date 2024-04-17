@@ -46,7 +46,7 @@ export default function Home() {
           whileInView={{ opacity: 1, x: 0, transition: { duration: 1, delay: 3.5 } }}
           className="mx-auto mt-5 max-w-[90%] lg:max-w-[60%]"
         >
-          Welcome to my porfolio, my name is Nam, a beginner frontend developer with the goal of advancing my career and
+          Welcome to my porfolio, I'm a beginner frontend developer with the goal of advancing my career and
           participating in inspiring projects. I&#39;m always ready to take on new challenges and expand my skill set to
           deliver high-quality work. I&#39;m eager to show off my work and make a great impression.
         </m.p>
@@ -77,7 +77,13 @@ export default function Home() {
             </svg>
             Contact Me
           </ClickableComponent>
-          <ClickableComponent className="group flex items-center justify-center gap-2 border-2 border-primary px-3 py-3 text-primary shadow-md shadow-neutral-500 duration-300 lg:px-4">
+          <ClickableComponent
+            href="https://drive.usercontent.google.com/download?id=17SbNdIm_oM-ZhBxGI-_7uGaFKGcvyg9d&export=download&authuser=0"
+            target="_blank"
+            rel="noreferrer"
+            download
+            className="group flex items-center justify-center gap-2 border-2 border-primary px-3 py-3 text-primary shadow-md shadow-neutral-500 duration-300 lg:px-4"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
