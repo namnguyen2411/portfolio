@@ -1,4 +1,4 @@
-import { RefObject, createRef, useEffect, useRef, useState } from 'react'
+import { RefObject, createRef, useEffect, useState } from 'react'
 import { m } from 'framer-motion'
 
 import SectionHeadings from 'src/components/SectionHeadings'
@@ -18,8 +18,6 @@ const variants = {
 }
 
 export default function About() {
-  const pictureRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLDivElement>(null)
   const [skillRefList, setSkillRefList] = useState<RefObject<HTMLDivElement>[]>([])
   const [displaySkill, setDisplaySkill] = useState<SkillType['name'] | undefined>(undefined)
 
@@ -40,7 +38,6 @@ export default function About() {
       <div className="mt-10 grid gap-10 lg:mt-20 lg:grid-cols-2 lg:gap-0">
         {/* picture */}
         <m.div
-          ref={pictureRef}
           custom={'picture'}
           initial={'initial'}
           whileInView={'whileInView'}
@@ -52,7 +49,6 @@ export default function About() {
         </m.div>
         {/* text */}
         <m.div
-          ref={textRef}
           custom={'text'}
           initial={'initial'}
           whileInView={'whileInView'}
